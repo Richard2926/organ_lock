@@ -74,7 +74,6 @@ import {
             duration: 6000,
             isClosable: true,
           });
-        setLoad(0);
       } catch (e) {
         console.log(e);
         toast({
@@ -87,6 +86,7 @@ import {
           isClosable: true,
         });
       }
+      setLoad(0);
     };
   
     const grant_donor = async () => {
@@ -120,19 +120,19 @@ import {
             duration: 6000,
             isClosable: true,
           });
-        setLoad(0);
       } catch (e) {
         console.log(e);
         toast({
           position: "bottom-left",
           title: "Unauthorized Role.",
           description:
-            "Oops. Looks like you do not have the 'WHO/ADMIN' role deployed on the blockchain or an invalid address! Check your address and try again!",
+            "Oops. Looks like you do not have the 'WHO/ADMIN' role deployed on the blockchain or you entered an invalid address! Check your address and try again!",
           status: "error",
           duration: 6000,
           isClosable: true,
         });
       }
+      setLoad(0);
     };
   
     return (

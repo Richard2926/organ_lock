@@ -261,6 +261,10 @@ export default function Waitlist() {
       bgSize="200vh"
       bgColor={"red"}
     >
+      <Flex>
+        <Image src={"/logo.png"} height="15vh" onClick={() => navigate("/")}/>
+        <Spacer />
+      </Flex>
       <Center>
         <VStack w="80%">
           <Center w="full" mt="5vh">
@@ -316,13 +320,23 @@ export default function Waitlist() {
                       <Td>{find_organ(patient.organ)}</Td>
                       <Td>{find_blood(patient.blood_type)}</Td>
                       <Td>
-                        <Button _hover={{ bg: "red.300" }} bg="red.200" isDisabled={!has_match(patient.organ, patient.blood_type)} 
-                        onClick={() => {
+                        <Button
+                          _hover={{ bg: "red.300" }}
+                          bg="red.200"
+                          isDisabled={
+                            !has_match(patient.organ, patient.blood_type)
+                          }
+                          onClick={() => {
                             setPatient(patient);
                             onOpenMatch();
-                        }
-                        }>
-                          <Text fontSize={"sm"} fontWeight="light" > {has_match(patient.organ, patient.blood_type) ? "View" : "None"}</Text>
+                          }}
+                        >
+                          <Text fontSize={"sm"} fontWeight="light">
+                            {" "}
+                            {has_match(patient.organ, patient.blood_type)
+                              ? "View"
+                              : "None"}
+                          </Text>
                         </Button>
                       </Td>
                     </Tr>
@@ -459,43 +473,52 @@ export default function Waitlist() {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-          <Table
-            variant="striped"
-            colorScheme="teal" 
-            bg="gray.100"
-            borderRadius={"5"}
-            w="90%"
-          >
-            <TableCaption color={"black"}>End of Matches</TableCaption>
-            <Thead>
-              <Tr>
-                <Th>Donor Name</Th>
-                <Th isNumeric>Age</Th>
-                <Th>Organ Type</Th>
-                <Th>Blood Type</Th>
-                <Th>Action</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {donors.map(
-                (donor) =>
-                  can_transplant(donor) && (
-                    <Tr key={donor.id}>
-                      <Td>{donor.name}</Td>
-                      <Td isNumeric>{donor.age}</Td>
-                      <Td>{find_organ(donor.organ)}</Td>
-                      <Td>{find_blood(donor.blood_type)}</Td>
-                      <Td>
-                        <Button bg="red.200"  
-                        onClick={() => {match(donor)}} isLoading={isMatching && active_donor.id === donor.id}>
-                          <Text fontSize={"sm"} fontWeight="light" >Match</Text>
-                        </Button>
-                      </Td>
-                    </Tr>
-                  )
-              )}
-            </Tbody>
-          </Table>
+            <Table
+              variant="striped"
+              colorScheme="teal"
+              bg="gray.100"
+              borderRadius={"5"}
+              w="90%"
+            >
+              <TableCaption color={"black"}>End of Matches</TableCaption>
+              <Thead>
+                <Tr>
+                  <Th>Donor Name</Th>
+                  <Th isNumeric>Age</Th>
+                  <Th>Organ Type</Th>
+                  <Th>Blood Type</Th>
+                  <Th>Action</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {donors.map(
+                  (donor) =>
+                    can_transplant(donor) && (
+                      <Tr key={donor.id}>
+                        <Td>{donor.name}</Td>
+                        <Td isNumeric>{donor.age}</Td>
+                        <Td>{find_organ(donor.organ)}</Td>
+                        <Td>{find_blood(donor.blood_type)}</Td>
+                        <Td>
+                          <Button
+                            bg="red.200"
+                            onClick={() => {
+                              match(donor);
+                            }}
+                            isLoading={
+                              isMatching && active_donor.id === donor.id
+                            }
+                          >
+                            <Text fontSize={"sm"} fontWeight="light">
+                              Match
+                            </Text>
+                          </Button>
+                        </Td>
+                      </Tr>
+                    )
+                )}
+              </Tbody>
+            </Table>
           </ModalBody>
         </ModalContent>
       </Modal>
@@ -518,40 +541,42 @@ export default function Waitlist() {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-          <Table
-            variant="striped"
-            colorScheme="teal"
-            borderRadius={"5"}
-            w="90%"
-            bg="gray.100"
-          >
-            <TableCaption color={"black"}>End of completed transactions</TableCaption>
-            <Thead>
-              <Tr>
-                <Th>Patient Name</Th>
-                <Th isNumeric>Age</Th>
-                <Th>Donor Name</Th>
-                <Th isNumeric>Donor Age</Th>
-                <Th>Organ Type</Th>
-                <Th>Blood Type</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {patients.map(
-                (patient) =>
-                  patient.donor_id !== "-1" && (
-                    <Tr key={patient.id}>
-                      <Td>{patient.name}</Td>
-                      <Td isNumeric>{patient.age}</Td>
-                      <Td>{find_donor(patient).name}</Td>
-                      <Td isNumeric>{find_donor(patient).age}</Td>
-                      <Td>{find_organ(patient.organ)}</Td>
-                      <Td>{find_blood(patient.blood_type)}</Td>
-                    </Tr>
-                  )
-              )}
-            </Tbody>
-          </Table>
+            <Table
+              variant="striped"
+              colorScheme="teal"
+              borderRadius={"5"}
+              w="90%"
+              bg="gray.100"
+            >
+              <TableCaption color={"black"}>
+                End of completed transactions
+              </TableCaption>
+              <Thead>
+                <Tr>
+                  <Th>Patient Name</Th>
+                  <Th isNumeric>Age</Th>
+                  <Th>Donor Name</Th>
+                  <Th isNumeric>Donor Age</Th>
+                  <Th>Organ Type</Th>
+                  <Th>Blood Type</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {patients.map(
+                  (patient) =>
+                    patient.donor_id !== "-1" && (
+                      <Tr key={patient.id}>
+                        <Td>{patient.name}</Td>
+                        <Td isNumeric>{patient.age}</Td>
+                        <Td>{find_donor(patient).name}</Td>
+                        <Td isNumeric>{find_donor(patient).age}</Td>
+                        <Td>{find_organ(patient.organ)}</Td>
+                        <Td>{find_blood(patient.blood_type)}</Td>
+                      </Tr>
+                    )
+                )}
+              </Tbody>
+            </Table>
           </ModalBody>
         </ModalContent>
       </Modal>
