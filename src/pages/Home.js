@@ -155,7 +155,14 @@ function Home() {
           <ModalCloseButton />
           <ModalBody>
             <VStack w="full" pb="4">
-              <Flex w="full">
+            <Flex w="full">
+                <Text>For Admin/WHO:</Text>
+                <Spacer />
+              </Flex>
+              <Button w="full" bg="red.200" _hover={{ bg: "red.300" }} onClick={() => navigate("/admin")}>
+                <Text fontWeight={"light"}>Grant Roles</Text>
+              </Button>
+              <Flex w="full"  pt="3">
                 <Text>For Doctors/Transplant Teams:</Text>
                 <Spacer />
               </Flex>

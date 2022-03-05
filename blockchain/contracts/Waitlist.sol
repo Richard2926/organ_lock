@@ -76,6 +76,14 @@ contract Waitlist is AccessControl {
     bool matched
   );
 
+  function grant_doctor_role(address doctor) public onlyRole(DEFAULT_ADMIN_ROLE) {
+    _setupRole(DOCTOR, doctor);
+  }
+
+  function grant_donor_role(address donor) public onlyRole(DEFAULT_ADMIN_ROLE) {
+    _setupRole(DONOR, donor);
+  }
+
   function get_waitlist() public onlyRole(DOCTOR) returns (Donor[] memory, Recipient[] memory) {
     Donor[] memory donors = new Donor[](donor_counter);
     Recipient[] memory patients = new Recipient[](recipient_counter);

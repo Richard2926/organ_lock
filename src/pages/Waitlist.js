@@ -60,6 +60,7 @@ export default function Waitlist() {
   const [patients, setPatients] = useState([]);
 
   const [patient, setPatient] = useState({});
+  const [active_donor, setActiveDonor] = useState({});
 
   const authorize = async () => {
     try {
@@ -166,6 +167,7 @@ export default function Waitlist() {
 
   const match = async(donor) => {
     setMatching(true);
+    setActiveDonor(donor);
     try {
         const accounts = await web3.eth.getAccounts();
         const waitlist = new web3.eth.Contract(
@@ -485,7 +487,7 @@ export default function Waitlist() {
                       <Td>{find_blood(donor.blood_type)}</Td>
                       <Td>
                         <Button bg="red.200"  
-                        onClick={() => {match(donor)}} isLoading={isMatching}>
+                        onClick={() => {match(donor)}} isLoading={isMatching && active_donor.id === donor.id}>
                           <Text fontSize={"sm"} fontWeight="light" >Match</Text>
                         </Button>
                       </Td>
