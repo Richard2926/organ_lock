@@ -62,9 +62,18 @@ import {
           waitlist_structure.abi,
           WAITLIST_ADDRESS
         );
-        const result = await waitlist.methods.grant_doctor_role(address).call({
+        await waitlist.methods.grant_doctor_role(address).send({
           from: accounts[0],
         });
+
+        toast({
+            position: "bottom-left",
+            title: "Access Granted",
+            description: "User was succesfully given 'DOCTOR' Role",
+            status: "success",
+            duration: 6000,
+            isClosable: true,
+          });
         setLoad(0);
       } catch (e) {
         console.log(e);
@@ -72,22 +81,63 @@ import {
           position: "bottom-left",
           title: "Unauthorized Role.",
           description:
-            "Oops. Looks like you do not have the 'WHO/ADMIN' role deployed on the blockchain or cancelled the transaction! Check your address and try again!",
+            "Oops. Looks like you do not have the 'WHO/ADMIN' role deployed on the blockchain or an invalid address! Check your address and try again!",
           status: "error",
           duration: 6000,
           isClosable: true,
         });
-        return navigate("/");
       }
     };
   
-    useEffect(() => {
+    const grant_donor = async () => {
+        setLoad(2);
+      try {
+        const accounts = await web3.eth.getAccounts();
+        if (accounts[0] === undefined) {
+          toast({
+            position: "bottom-left",
+            title: "Connect Account.",
+            description: "Please connect your account first!",
+            status: "warning",
+            duration: 6000,
+            isClosable: true,
+          });
+          return navigate("/");
+        }
+        const waitlist = new web3.eth.Contract(
+          waitlist_structure.abi,
+          WAITLIST_ADDRESS
+        );
+        await waitlist.methods.grant_donor_role(address).send({
+          from: accounts[0],
+        });
 
-    });
+        toast({
+            position: "bottom-left",
+            title: "Access Granted",
+            description: "User was succesfully given 'DONOR' Role",
+            status: "success",
+            duration: 6000,
+            isClosable: true,
+          });
+        setLoad(0);
+      } catch (e) {
+        console.log(e);
+        toast({
+          position: "bottom-left",
+          title: "Unauthorized Role.",
+          description:
+            "Oops. Looks like you do not have the 'WHO/ADMIN' role deployed on the blockchain or an invalid address! Check your address and try again!",
+          status: "error",
+          duration: 6000,
+          isClosable: true,
+        });
+      }
+    };
   
     return (
       <Box
-        bgImage="url(/bg_dog.jpg)"
+        bgImage="url(/bg_dog_mahesh.jpg)"
         bgPosition="center"
         bgRepeat="no-repeat"
         minH="100vh"
@@ -116,8 +166,9 @@ import {
                 bg="red.200"
                 _hover={{ bg: "red.300" }}
                 onClick={grant_doctor}
+                isLoading={load === 1}
               >
-                <Text fontWeight={"light"}>Grant Doctor Role</Text>
+                <Text fontWeight={"light"}>Grant Doctor Authorization</Text>
               </Button>
             </Center>
             <Center w="full" mt="2vh" pb="2vh">
@@ -126,9 +177,10 @@ import {
                 height={"8vh"}
                 bg="blue.200"
                 _hover={{ bg: "blue.300" }}
-                onClick={grant_doctor}
+                onClick={grant_donor}
+                isLoading={load === 2}
               >
-                <Text fontWeight={"light"}>Grant Donor Role</Text>
+                <Text fontWeight={"light"}>Grant Donor Authorization</Text>
               </Button>
             </Center>
           </VStack>

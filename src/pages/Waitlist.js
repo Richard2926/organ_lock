@@ -254,7 +254,7 @@ export default function Waitlist() {
     ></Box>
   ) : (
     <Box
-      bgImage="url(/bg_dog.jpg)"
+      bgImage="url(/bg_dog_mahesh.jpg)"
       bgPosition="center"
       bgRepeat="no-repeat"
       minH="100vh"
