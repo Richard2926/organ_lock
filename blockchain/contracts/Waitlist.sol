@@ -76,9 +76,22 @@ contract Waitlist is AccessControl {
     bool matched
   );
 
-  function get_waitlist() public onlyRole(DOCTOR) {
+  function get_waitlist() public onlyRole(DOCTOR) returns (Donor[] memory, Recipient[] memory) {
+    Donor[] memory donors = new Donor[](donor_counter);
+    Recipient[] memory patients = new Recipient[](recipient_counter);
 
-  }
+    for (uint i = 0; i < donor_counter; i++) {
+      Donor storage donor = donor_list[i];
+      donors[i] = donor;
+    }
+
+    for (uint j = 0; j < recipient_counter; j++) {
+      Recipient storage patient = waitlist[j];
+      patients[j] = patient;
+    }
+
+    return (donors, patients);
+  } 
 
   function queue_recipient(string memory _name, uint _severity, uint _score, uint _age, Organ _organ, BloodType _blood_type) public onlyRole(DOCTOR) {
     waitlist[recipient_counter] = Recipient(recipient_counter, _name, -1,  _severity, _score, _age, _organ, _blood_type);

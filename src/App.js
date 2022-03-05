@@ -1,7 +1,16 @@
-import { useEffect, useState } from "react";
+import "./App.css";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Waitlist from "./pages/Waitlist";
 
 function App() {
-  return <Text>Hello</Text>;
+  return (
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/doctor" element={<Waitlist />} />
+      <Route path="*" element={<Navigate to="/"/>} />
+    </Routes>
+  );
 }
 
 export default App;
