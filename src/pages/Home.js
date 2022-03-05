@@ -21,7 +21,7 @@ import {
   Input,
   useToast
 } from "@chakra-ui/react";
-import waitlist_structure from "contracts/Waitlist.json";
+// import waitlist_structure from "contracts/Waitlist.json";
 import { WAITLIST_ADDRESS, WAITLIST_ABI } from "../blockchain_logic/waitlist";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -45,7 +45,7 @@ function Home() {
     setDonoring(true);
     try {
       const waitlist = new web3.eth.Contract(
-        waitlist_structure.abi,
+        WAITLIST_ABI,
         WAITLIST_ADDRESS
       );
       await waitlist.methods

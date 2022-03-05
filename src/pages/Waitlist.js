@@ -30,7 +30,7 @@ import {
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Web3 from "web3";
-import waitlist_structure from "contracts/Waitlist.json";
+// import waitlist_structure from "contracts/Waitlist.json";
 import { WAITLIST_ADDRESS, WAITLIST_ABI } from "../blockchain_logic/waitlist";
 
 export default function Waitlist() {
@@ -77,7 +77,7 @@ export default function Waitlist() {
         return navigate("/");
       }
       const waitlist = new web3.eth.Contract(
-        waitlist_structure.abi,
+        WAITLIST_ABI,
         WAITLIST_ADDRESS
       );
       const result = await waitlist.methods.get_waitlist().call({
@@ -171,7 +171,7 @@ export default function Waitlist() {
     try {
         const accounts = await web3.eth.getAccounts();
         const waitlist = new web3.eth.Contract(
-          waitlist_structure.abi,
+          WAITLIST_ABI,
           WAITLIST_ADDRESS
         );
         await waitlist.methods
@@ -208,7 +208,7 @@ export default function Waitlist() {
     try {
       const accounts = await web3.eth.getAccounts();
       const waitlist = new web3.eth.Contract(
-        waitlist_structure.abi,
+        WAITLIST_ABI,
         WAITLIST_ADDRESS
       );
       await waitlist.methods
