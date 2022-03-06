@@ -133,7 +133,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 * To deploy the smart contract
 ```sh
-   cd blockchain\
+   cd blockchain/
    ```
    ```sh
    truffle migrate
