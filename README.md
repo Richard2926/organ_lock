@@ -17,13 +17,6 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 
 <!-- PROJECT LOGO -->
@@ -38,21 +31,13 @@
   <p align="center">
     Leveraging decentralized public ledgers on Blockchain to solve Black Marketing of Donated Organs and Waitlist Skipping. 
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
   </p>
 </div>
 
 
 
 <!-- TABLE OF CONTENTS -->
-<details>
+<!-- <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -75,16 +60,14 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
-</details>
+</details> -->
 
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+Welcome To Organ Lock. This platform facilitates transparency and traces any transaction made to the organ transplant waitlist back to the source via the transaction hash.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -92,14 +75,14 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 
 ### Built With
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+* [Truffle](https://trufflesuite.com/)
+* [Ganache](https://trufflesuite.com/ganache/index.html)
+* [Solidity](https://docs.soliditylang.org/en/v0.8.12/)
+* [Rinkeby](https://rinkeby.etherscan.io/apidoc)
+* [React js](https://reactjs.org/docs/getting-started.html)
+* [Chakra UI](https://chakra-ui.com/)
+* [Web3](https://web3js.readthedocs.io/en/v1.7.0/)
+* [Infura](https://infura.io/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -114,25 +97,28 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+* truffle
   ```sh
-  npm install npm@latest -g
+  npm install truffle
   ```
-
+* solidity
+  ```sh
+  npm install solc-js
+  ```
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Run a local Instance of Ganache
 2. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/Richard2926/organ_lock.git
    ```
 3. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+4. Enter your port in `truffle-config.js`
    ```js
-   const API_KEY = 'ENTER YOUR API';
+   port: "YOUR_PORT_NO"
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -158,7 +144,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Feature 3
     - [ ] Nested Feature
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/Richard2926/organ_lock/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -196,7 +182,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/Richard2926/organ_lock](https://github.com/Richard2926/organ_lock)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -215,16 +201,16 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/Richard2926/organ_lock.svg?style=for-the-badge
+[contributors-url]: https://github.com/Richard2926/organ_lock/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Richard2926/organ_lock.svg?style=for-the-badge
+[forks-url]: https://github.com/Richard2926/organ_lock/network/members
+[stars-shield]: https://img.shields.io/github/stars/Richard2926/organ_lock.svg?style=for-the-badge
+[stars-url]: https://github.com/Richard2926/organ_lock/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Richard2926/organ_lock.svg?style=for-the-badge
+[issues-url]: https://github.com/Richard2926/organ_lock/issues
+[license-shield]: https://img.shields.io/github/license/Richard2926/organ_lock.svg?style=for-the-badge
+[license-url]: https://github.com/Richard2926/organ_lock/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
