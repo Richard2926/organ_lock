@@ -29,14 +29,14 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/Richard2926/organ_lock">
+    <img src="public/bg_dog.jpg" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Organ Lock</h3>
 
   <p align="center">
-    project_description
+    Leveraging decentralized public ledgers on Blockchain to solve Black Marketing of Donated Organs and Waitlist Skipping. 
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
